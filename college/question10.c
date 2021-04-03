@@ -3,7 +3,7 @@
 
 main()
 {
-   int bin[8], cont, num;
+   int binary[8], bin[8], cont, num;
    printf("Type a decimal number for conversion in binary: ");scanf("%d", &num);
 
    for (cont = 7; cont >= 0; cont--)
@@ -14,9 +14,6 @@ main()
          bin[cont] = 1;
       num /= 2;
    }
-
-
    for (cont = 0; cont < 8; cont++){
-
        printf("%d", bin[cont]); 
 }}

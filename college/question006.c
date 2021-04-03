@@ -8,5 +8,4 @@ main(){
     rest = number1 % number2;
     printf("\nThe rest is %d\n",rest);
     printf("The quotient is %d\n", quotient);
-    return 0;
 }

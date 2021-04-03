@@ -1,0 +1,1 @@
+//lendo o número binario 

@@ -1,6 +1,6 @@
 #include <stdio.h>;
 
-main(void){
+main(){
 float  surface,  pi = 3.14, radius;
 printf("Type a radius : ");scanf("%f",& radius);
 surface = radius * radius * pi;
