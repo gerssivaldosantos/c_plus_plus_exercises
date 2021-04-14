@@ -1,7 +1,7 @@
 /* 5 - Escrever um programa que calcula e escreve o produto dos
 números primos entre 92 e 1478. */
 #include <stdio.h>
-#include <math.h>
+
 int main() {
   
   long double floatnumber = 92,prim, product, cont = 0;
