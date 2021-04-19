@@ -15,7 +15,7 @@ int main() {
   printf("Type the price of product: ");
   scanf("%d", &price);
   for (int i = 1; i <= 3; i++) {
-    // this loop recolhe coin variables coins
+    // this loop catch coin variables
     printf("type the %dº coin value :", i);
     // globalAux variable do save the value in loop time execution
     scanf("%d", &globalAux);
