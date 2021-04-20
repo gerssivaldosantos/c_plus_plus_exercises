@@ -1,25 +1,14 @@
-/* Escreva um programa em C, que dado o preço de uma mercadoria e os valores das
- três moedas disponíveis, calcule o menor número possível de moedas necessário
- para comprar o produto sem haver troco, ou seja, o menor número de moedas tal
- que o total seja exatamente o preço da mercadoria. Se não for possível utilizar
-  as moedas para chegar exatamente ao valor solicitado, a saída deve indicar
- “IMPOSSÍVEL”  */
-
-// a parte de ordenar os numeros ta perfeita, mas o resto ta uma bosta
 #include <stdio.h>
 
 int main() {
   int price, coin1, coin2, coin3;
-  int globalAux, biggest, second, third; // Aux variables
+  int globalAux, biggest, second, third;
   int biggestCont = 0, secondCont = 0, thirdCont = 0;
   printf("Type the price of product: ");
   scanf("%d", &price);
   for (int i = 1; i <= 3; i++) {
-    // this loop catch coin variables
     printf("type the %dº coin value :", i);
-    // globalAux variable do save the value in loop time execution
     scanf("%d", &globalAux);
-    //"if" chooses where the value goes
     if (i == 1)
       coin1 = globalAux;
     else if (i == 2)
@@ -27,77 +16,42 @@ int main() {
     else
       coin3 = globalAux;
   }
-
-  globalAux = 0;
-
   if (coin1 > coin2 && coin1 > coin3) {
-
-    // coin1 is the biggest
     biggest = coin1;
     if (coin2 > coin3) {
       second = coin2;
       third = coin3;
-      // coin1 is the biggest
-      // coin2 is the second biggest
-      // coin3 is the third biggest
     } else if (coin2 < coin3) {
       second = coin3;
       third = coin2;
-      // coin1 is the biggest
-      // coin3 is the second biggest
-      // coin2 is the third biggest
     } else if (coin2 == coin3) {
       second = coin2;
       third = coin3;
     }
-  }
-
-  else if (coin2 > coin1 && coin2 > coin3) {
+  } else if (coin2 > coin1 && coin2 > coin3) {
     biggest = coin2;
-    // coin2 is the biggest
     if (coin1 > coin3) {
       second = coin1;
       third = coin3;
-      // coin2 is the biggest
-      // coin1 is the second biggest
-      // coin3 is the third biggest
     } else if (coin1 < coin3) {
       second = coin3;
       third = coin1;
-      // coin2 is the biggest
-      // coin3 is the second biggest
-      // coin1 is the third biggest
     }
-
-  }
-
-  else if (coin3 > coin2 && coin3 > coin1) {
+  } else if (coin3 > coin2 && coin3 > coin1) {
     biggest = coin3;
-    // coin3 is the biggest
     if (coin1 > coin2) {
       second = coin1;
       third = coin2;
-      // coin3 is the biggest
-      // coin1 is the second biggest
-      // coin3 is the third biggest
     }
     if (coin1 < coin2) {
       second = coin2;
       third = coin1;
-      // coin3 is the biggest
-      // coin2 is the second biggest
-      // coin1 is the third biggest
     }
-  }
-
-  else if (coin1 == coin2 && coin2 == coin3) {
-    // the coins values is same
+  } else if (coin1 == coin2 && coin2 == coin3) {
     biggest = coin1;
     second = coin2;
     third = coin3;
-  }
-
-  else if (coin1 == coin2) {
+  } else if (coin1 == coin2) {
     if (coin1 > coin3) {
       biggest = coin1;
       second = coin2;
@@ -107,9 +61,7 @@ int main() {
       second = coin1;
       third = coin2;
     }
-  }
-
-  else if (coin2 == coin3) {
+  } else if (coin2 == coin3) {
     if (coin2 > coin1) {
       biggest = coin2;
       second = coin3;
@@ -120,7 +72,6 @@ int main() {
       third = coin3;
     }
   }
-
   else if (coin1 == coin3) {
     if (coin1 > coin2) {
       biggest = coin1;
@@ -132,13 +83,10 @@ int main() {
       third = coin3;
     }
   }
-
   printf("\nfirst coin %d, second coin %d, third coin %d\n  \n", coin1, coin2,
          coin3);
   printf("the sequence of big to small\n1º:%d\n2º%d\n3º%d\n  \n", biggest,
          second, third);
-  int auxPrice = price;
-
   if ((price / biggest) > 0) {
     biggestCont = price / biggest;
     price = price % biggest;
@@ -151,7 +99,6 @@ int main() {
     printf("foram usadas %d moedas grandes, preço atual %d\n", biggestCont,
            price);
   }
-
   if ((price / second) > 0) {
     secondCont = price / second;
     price = price % second;
@@ -173,3 +120,32 @@ int main() {
     printf(" restante final do preço %d IMPOSSIVEL\n", price);
   }
 }
+
+/* 
+Type the price of product: 1000
+type the 1º coin value :150
+type the 2º coin value :35
+type the 3º coin value :27
+
+first coin 150, second coin 35, third coin 27
+  
+the sequence of big to small
+1º:150
+2º35
+3º27
+  
+foram usadas 6 moedas grandes, preço atual 100
+foram usada 2 moedas médias, preço atual 30 
+foram usada 1 moedas pequenas, Sobrou 3 
+ restante final do preço 3 IMPOSSIVEL
+
+ */
+
+
+
+/* Escreva um programa em C, que dado o preço de uma mercadoria e os valores das
+ três moedas disponíveis, calcule o menor número possível de moedas necessário
+ para comprar o produto sem haver troco, ou seja, o menor número de moedas tal
+ que o total seja exatamente o preço da mercadoria. Se não for possível utilizar
+  as moedas para chegar exatamente ao valor solicitado, a saída deve indicar
+ “IMPOSSÍVEL”  */
