@@ -6,11 +6,11 @@
 // então criei essa constante para organizar
 #define len 10
 int main() {
-  int vetor1[len] = {2, 3, 4, 5, 6, 12, 1, 23, 11, 32};
-  int vetor2[len] = {2, 31, 4, 51, 16, 12, 1, 23, 111,323};
+  int vetor1[len] = {1,2,3,4,5,6,7,90,9,0};
+  int vetor2[len] = {1,2,150,7,6,5,4,3,120,900};
   int resultado[len];
   int vetorAux[len];
-  int iAux, counterAux, counter1, counter2 = 0;
+  int cont,iAux, counterAux, counter1, counter2 = 0;
 
   for (int i = 0; i < len; i++) {
   
@@ -25,7 +25,7 @@ int main() {
       //para caso contrário indica-lo como número
       //presente no vetor 1 e ausente no 2
 
-      if (i != e && vetor1[i] == vetor2[e]) {
+      if (vetor1[i] == vetor2[e]) {
         counterAux++;
       }
 
@@ -43,8 +43,9 @@ int main() {
     //pede a questão (usei um array aux para guardar)
 
     if (counterAux == 0 && vetor1[i] != vetor2[i]) {
-      vetorAux[iAux] = vetor1[i];
-      iAux++;
+      //vetorAux[iAux] = vetor1[i];
+      //iAux++;
+      printf("%d \n",vetor1[i]);
       counterAux = 0;
     } else
       counterAux = 0;
@@ -68,7 +69,24 @@ int main() {
       printf("-------------------------\n");
     }
 
+    printf("Imprimindo os números primos do Vetor 1\n\n");
+    for (int h = 0; h < len; h++){
+      //equivalente ao number >>>> vetorx[h]
 
+
+
+      for (int i = 2; i < vetor1[h]; i ++)
+    {   
+        if (vetor1[h] % i == 0){cont ++;break;}
+        /* Continuando o exemplo do número 9, chegando aqui
+        o primeiro número que será atribuido ao "i" é
+        o 2,  */
+    }
+
+    if (cont == 0){printf("%d",vetor1[h]);}
+
+
+    }
 
 
   }
