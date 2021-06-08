@@ -1,31 +1,28 @@
-//QUESTÃO 1 DESAFIO 1
-
+// QUESTÃO 1 DESAFIO 1
 
 #include <stdio.h>
-// O tamanho do array sempre vai ser 10
-// então criei essa constante para organizar
 #define len 10
 int main() {
-  int vetor1[len] = {1,2,3,4,5,6,7,90,9,0};
-  int vetor2[len] = {1,2,150,7,6,5,4,3,120,900};
+  int vetor1[len] = {2, 3, 4, 5, 6, 12, 1, 23, 11, 32};
+  int vetor2[len] = {2, 31, 4, 51, 16, 12, 1, 23, 111, 323};
   int resultado[len];
   int vetorAux[len];
-  int cont,iAux, counterAux, counter1, counter2 = 0;
+  int cont= 0, iAux= 0, counterAux= 0, counter1= 0, counter2 = 0;
 
   for (int i = 0; i < len; i++) {
-  
+
     resultado[i] = vetor1[i] + vetor2[i];
 
-    //Percorrendo todas as possibilidades númericas dentro 
-    //dos vetores 1 e 2
+    // Percorrendo todas as possibilidades númericas dentro
+    // dos vetores 1 e 2
     for (int e = 0; e < len; e++) {
-      
-      //verificando se existe números dentro do vetor 2
-      //correspondentes ao atual número em vetor 1
-      //para caso contrário indica-lo como número
-      //presente no vetor 1 e ausente no 2
 
-      if (vetor1[i] == vetor2[e]) {
+      // verificando se existe números dentro do vetor 2
+      // correspondentes ao atual número em vetor 1
+      // para caso contrário indica-lo como número
+      // presente no vetor 1 e ausente no 2
+
+      if (i != e && vetor1[i] == vetor2[e]) {
         counterAux++;
       }
 
@@ -37,15 +34,15 @@ int main() {
       }
     }
 
-    //aqui verificamos a ausência de correspondentes
-    //caso ocorra, o número entra na lista de números
-    //a serem printados no final do programa como 
-    //pede a questão (usei um array aux para guardar)
+    // aqui verificamos a ausência de correspondentes
+    // caso ocorra, o número entra na lista de números
+    // a serem printados no final do programa como
+    // pede a questão (usei um array aux para guardar)
 
     if (counterAux == 0 && vetor1[i] != vetor2[i]) {
-      //vetorAux[iAux] = vetor1[i];
-      //iAux++;
-      printf("%d \n",vetor1[i]);
+      vetorAux[iAux] = vetor1[i];
+      iAux++;
+
       counterAux = 0;
     } else
       counterAux = 0;
@@ -64,31 +61,62 @@ int main() {
       }
     }
     printf("Somando os vetores 1 e 2...\n\n");
-    for (int y = 0; y < len; y++){
-      printf("%dºNúmero:     %d+%d=%d\n",y+1,vetor1[y],vetor2[y],resultado[y]);
+    for (int y = 0; y < len; y++) {
+      printf("%dºNúmero:     %d+%d=%d\n", y + 1, vetor1[y], vetor2[y],
+             resultado[y]);
       printf("-------------------------\n");
     }
 
     printf("Imprimindo os números primos do Vetor 1\n\n");
-    for (int h = 0; h < len; h++){
-      //equivalente ao number >>>> vetorx[h]
+    for (int h = 0; h < len; h++) {
 
+      for (int i = 2; i < vetor1[h]; i++) {
+        if (vetor1[h] % i == 0) {
+          cont++;
+          break;
+        }
+      }
 
+      if (cont == 0) {
+        printf("%d / ", vetor1[h]);
+      }
 
-      for (int i = 2; i < vetor1[h]; i ++)
-    {   
-        if (vetor1[h] % i == 0){cont ++;break;}
-        /* Continuando o exemplo do número 9, chegando aqui
-        o primeiro número que será atribuido ao "i" é
-        o 2,  */
+      cont = 0;
     }
 
-    if (cont == 0){printf("%d",vetor1[h]);}
+    printf("\nImprimindo os números primos do Vetor 2\n\n");
+    for (int h = 0; h < len; h++) {
 
+      for (int i = 2; i < vetor2[h]; i++) {
+        if (vetor2[h] % i == 0) {
+          cont++;
+          break;
+        }
+      }
 
+      if (cont == 0) {
+        printf("%d / ", vetor2[h]);
+      }
+
+      cont = 0;
     }
 
+    printf("\nImprimindo os números primos em resultados\n\n");
+    for (int h = 0; h < len; h++) {
 
+      for (int i = 2; i < resultado[h]; i++) {
+        if (resultado[h] % i == 0) {
+          cont++;
+          break;
+        }
+      }
+
+      if (cont == 0) {
+        printf("%d / ", resultado[h]);
+      }
+
+      cont = 0;
+    }
+    printf("\n");
   }
-
 }
