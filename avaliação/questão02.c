@@ -10,6 +10,7 @@ int main() {
   printf("Type de first coin value : ");scanf("%d",&coin1);
   printf("Type de second coin value : ");scanf("%d",&coin2);
   printf("Type de third coin value : ");scanf("%d",&coin3);
+  
   if (coin1 > coin2 && coin1 > coin3) {
     biggest = coin1;
     if (coin2 > coin3) {
